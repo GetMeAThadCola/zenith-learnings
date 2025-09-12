@@ -22,6 +22,18 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--primary-light))",
+          dark: "hsl(var(--primary-dark))",
+        },
+        sage: {
+          DEFAULT: "hsl(var(--sage))",
+          light: "hsl(var(--sage-light))",
+          dark: "hsl(var(--sage-dark))",
+        },
+        healing: {
+          DEFAULT: "hsl(var(--healing))",
+          light: "hsl(var(--healing-light))",
+          dark: "hsl(var(--healing-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
