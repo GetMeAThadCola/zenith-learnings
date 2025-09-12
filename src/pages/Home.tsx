@@ -1,13 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Award, Play, ChevronRight } from "lucide-react";
+import { Star, Users, Award, Play, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroVideoPoster from "@/assets/hero-video-poster.jpg";
 import drProfile from "@/assets/dr-profile.jpg";
-
-const slugify = (s: string) =>
-  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
 
 const Home = () => {
   const stats = [
@@ -22,26 +19,23 @@ const Home = () => {
       title: "Understanding Depression in the Workplace",
       duration: "45 minutes",
       price: "$49",
-      description:
-        "Evidence-based strategies for recognizing and addressing workplace depression.",
-      badge: "Most Popular",
+      description: "Evidence-based strategies for recognizing and addressing workplace depression.",
+      badge: "Most Popular"
     },
     {
       title: "Anxiety Management for Teams",
-      duration: "35 minutes",
+      duration: "35 minutes", 
       price: "$39",
-      description:
-        "Practical tools for managing anxiety in professional environments.",
-      badge: "New",
+      description: "Practical tools for managing anxiety in professional environments.",
+      badge: "New"
     },
     {
       title: "Building Resilience",
       duration: "60 minutes",
       price: "$59",
-      description:
-        "Develop psychological resilience for personal and professional growth.",
-      badge: "Deep Dive",
-    },
+      description: "Develop psychological resilience for personal and professional growth.",
+      badge: "Deep Dive"
+    }
   ];
 
   return (
@@ -57,32 +51,23 @@ const Home = () => {
                 Master's in Psychology • 15+ Years Experience
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Expert Mental Health{" "}
+                Expert Mental Health 
                 <span className="block text-sage-light">Education & Training</span>
               </h1>
               <p className="text-xl mb-8 text-primary-foreground/90 leading-relaxed">
-                Evidence-based seminars on depression, anxiety, and resilience for teams, schools,
-                and communities from Kristin Bauer. Transform your organization's mental health
-                literacy.
+                Evidence-based seminars on depression, anxiety, and resilience for teams, 
+                schools, and communities from Kristin Bauer. Transform your organization's mental health literacy.
               </p>
-
+              
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                {/* Watch Seminars */}
                 <Button variant="sage" size="lg" asChild>
-                  <Link to="/seminars" aria-label="Watch Seminars">
+                  <Link to="/seminars">
                     <Play className="w-5 h-5 mr-2" />
                     Watch Seminars
                   </Link>
                 </Button>
-
-                {/* Always-readable white button */}
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="inline-flex items-center justify-center rounded-lg px-5 py-3 bg-white text-slate-900 border border-slate-200 hover:bg-slate-50"
-                  asChild
-                >
-                  <Link to="/book" aria-label="Book Speaking Engagement">
+                <Button variant="outline" size="lg" className="inline-flex items-center justify-center rounded-lg px-5 py-3 bg-white text-slate-900 border border-slate-200 hover:bg-slate-50" asChild>
+                  <Link to="/book">
                     Book Speaking Engagement
                   </Link>
                 </Button>
@@ -99,19 +84,18 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Content - Poster */}
+            {/* Right Content - Video */}
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-elevated">
-                <img
+                <img 
                   src={heroVideoPoster}
                   alt="Kristin Bauer speaking at a professional seminar"
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
-                  <Button
-                    size="lg"
+                  <Button 
+                    size="lg" 
                     className="rounded-full w-20 h-20 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-glow"
-                    aria-label="Play intro video"
                   >
                     <Play className="w-8 h-8 ml-1" />
                   </Button>
@@ -120,11 +104,8 @@ const Home = () => {
               <div className="absolute -bottom-4 -right-4 bg-primary-foreground rounded-xl p-4 shadow-elevated">
                 <div className="flex items-center space-x-2">
                   <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div
-                        key={i}
-                        className="w-8 h-8 rounded-full bg-sage border-2 border-primary-foreground"
-                      />
+                    {[1,2,3].map((i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-sage border-2 border-primary-foreground"></div>
                     ))}
                   </div>
                   <div className="text-sm font-medium text-primary">
@@ -143,51 +124,43 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-sage text-primary-foreground">Featured Seminars</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Professional Mental Health Training</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              Professional Mental Health Training
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive, evidence-based seminars designed for professionals, organizations, and
-              individuals seeking to enhance mental health literacy.
+              Comprehensive, evidence-based seminars designed for professionals, 
+              organizations, and individuals seeking to enhance mental health literacy.
             </p>
           </div>
 
-          {/* Card + "Learn More" both link to /seminars/:slug */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredSeminars.map((seminar, index) => {
-              const slug = slugify(seminar.title);
-              const href = `/seminars/${slug}`;
-              return (
-                <Link
-                  key={index}
-                  to={href}
-                  className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-sage/60 rounded-xl"
-                  aria-label={`Open seminar: ${seminar.title}`}
-                >
-                  <Card className="gradient-card border-sage/20 hover:shadow-elevated transition-gentle">
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-start mb-4">
-                        <Badge variant="secondary" className="bg-sage text-primary-foreground">
-                          {seminar.badge}
-                        </Badge>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold text-primary">{seminar.price}</div>
-                          <div className="text-sm text-muted-foreground">{seminar.duration}</div>
-                        </div>
-                      </div>
-
-                      <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-gentle">
-                        {seminar.title}
-                      </h3>
-                      <p className="text-muted-foreground mb-6">{seminar.description}</p>
-
-                      <div className="flex items-center text-primary font-medium group-hover:translate-x-2 transition-gentle">
-                        Learn More
-                        <ChevronRight className="w-4 h-4 ml-1" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
+            {featuredSeminars.map((seminar, index) => (
+              <Card key={index} className="group gradient-card border-sage/20 hover:shadow-elevated transition-gentle cursor-pointer">
+                <CardContent className="p-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <Badge variant="secondary" className="bg-sage text-primary-foreground">
+                      {seminar.badge}
+                    </Badge>
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-primary">{seminar.price}</div>
+                      <div className="text-sm text-muted-foreground">{seminar.duration}</div>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-gentle">
+                    {seminar.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    {seminar.description}
+                  </p>
+                  
+                  <div className="flex items-center text-primary font-medium group-hover:translate-x-2 transition-gentle">
+                    Learn More
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           <div className="text-center mt-12">
@@ -206,7 +179,7 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img
+              <img 
                 src={drProfile}
                 alt="Kristin Bauer, Licensed Psychologist"
                 className="rounded-2xl shadow-elevated w-full max-w-md mx-auto lg:max-w-none"
@@ -224,22 +197,24 @@ const Home = () => {
 
             <div>
               <Badge className="mb-4 bg-sage text-primary-foreground">Meet Kristin</Badge>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">15+ Years of Clinical Excellence</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                15+ Years of Clinical Excellence
+              </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Kristin Bauer holds a Master's degree in Psychology with over 15 years of experience
-                in treating depression, anxiety, and trauma. She specializes in evidence-based
+                Kristin Bauer holds a Master's degree in Psychology with over 15 years of experience 
+                in treating depression, anxiety, and trauma. She specializes in evidence-based 
                 therapeutic approaches and has trained thousands of professionals worldwide.
               </p>
-
+              
               <div className="space-y-4 mb-8">
                 {[
                   "Master's in Psychology",
                   "Licensed Psychologist",
                   "500+ Organizations Trained",
-                  "TEDx Speaker on Mental Health",
+                  "TEDx Speaker on Mental Health"
                 ].map((credential, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full bg-sage" />
+                    <div className="w-2 h-2 rounded-full bg-sage"></div>
                     <span className="text-muted-foreground">{credential}</span>
                   </div>
                 ))}
@@ -256,32 +231,80 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-20 bg-healing-light/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-sage text-primary-foreground">Client Reviews</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              Trusted by Organizations Worldwide
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "Dr. Chen's seminar on workplace depression was transformative for our team. The practical strategies she provided have made a real difference.",
+                author: "Sarah Johnson",
+                role: "HR Director, TechCorp"
+              },
+              {
+                quote: "Exceptional expertise delivered with compassion. Our staff gained valuable tools for supporting mental health in our community.",
+                author: "Michael Rodriguez",
+                role: "Principal, Lincoln High School"
+              },
+              {
+                quote: "Evidence-based, practical, and engaging. Dr. Chen's training elevated our entire organization's approach to mental wellness.",
+                author: "Dr. Amanda Kim",
+                role: "Medical Director, Community Health"
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className="gradient-card border-sage/20">
+                <CardContent className="p-6">
+                  <div className="flex mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-sage text-sage" />
+                    ))}
+                  </div>
+                  <blockquote className="text-muted-foreground mb-4 italic">
+                    "{testimonial.quote}"
+                  </blockquote>
+                  <div>
+                    <div className="font-semibold text-primary">{testimonial.author}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-foreground">
             Ready to Transform Your Organization's Mental Health?
           </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
-            Join thousands of professionals who have enhanced their mental health literacy through
-            Kristin's evidence-based seminars and training programs.
-          </p>
-
+            <p className="text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
+              Join thousands of professionals who have enhanced their mental health literacy 
+              through Kristin's evidence-based seminars and training programs.
+            </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="sage" size="lg" asChild>
-              <Link to="/seminars" aria-label="Start Learning Today">
+              <Link to="/seminars">
                 <Play className="w-5 h-5 mr-2" />
                 Start Learning Today
               </Link>
             </Button>
-            {/* Always-readable white outline button */}
-            <Button
-              variant="outline"
-              size="lg"
-              className="inline-flex items-center justify-center rounded-lg px-5 py-3 bg-white text-slate-900 border border-slate-200 hover:bg-slate-50"
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               asChild
             >
-              <Link to="/book" aria-label="Book Speaking Engagement">
+              <Link to="/book">
                 Book Speaking Engagement
               </Link>
             </Button>
