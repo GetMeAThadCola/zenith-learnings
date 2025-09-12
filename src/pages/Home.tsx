@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Award, Play, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import heroVideoPoster from "@/assets/hero-video-poster.jpg";
 import drProfile from "@/assets/dr-profile.jpg";
 
@@ -10,6 +10,8 @@ const slugify = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const stats = [
     { label: "Years Experience", value: "15+" },
     { label: "Professionals Trained", value: "10,000+" },
@@ -148,41 +150,52 @@ const Home = () => {
             </p>
           </div>
 
-          {/* WHOLE card is a link to /seminars/:slug */}
+          {/* Card is clickable + "Learn More" is a real link */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredSeminars.map((seminar, index) => {
               const slug = slugify(seminar.title);
+              const href = `/seminars/${slug}`;
               return (
-                <Link
+                <Card
                   key={index}
-                  to={`/seminars/${slug}`}
-                  className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-sage/60 rounded-xl"
+                  onClick={() => navigate(href)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") navigate(href);
+                  }}
+                  role="link"
+                  tabIndex={0}
+                  className="gradient-card border-sage/20 hover:shadow-elevated transition-gentle cursor-pointer"
                   aria-label={`Open seminar: ${seminar.title}`}
                 >
-                  <Card className="gradient-card border-sage/20 hover:shadow-elevated transition-gentle">
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-start mb-4">
-                        <Badge variant="secondary" className="bg-sage text-primary-foreground">
-                          {seminar.badge}
-                        </Badge>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold text-primary">{seminar.price}</div>
-                          <div className="text-sm text-muted-foreground">{seminar.duration}</div>
-                        </div>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <Badge variant="secondary" className="bg-sage text-primary-foreground">
+                        {seminar.badge}
+                      </Badge>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-primary">{seminar.price}</div>
+                        <div className="text-sm text-muted-foreground">{seminar.duration}</div>
                       </div>
+                    </div>
 
-                      <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-gentle">
-                        {seminar.title}
-                      </h3>
-                      <p className="text-muted-foreground mb-6">{seminar.description}</p>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-gentle">
+                      {seminar.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6">{seminar.description}</p>
 
-                      <div className="flex items-center text-primary font-medium group-hover:translate-x-2 transition-gentle">
+                    <div className="flex items-center">
+                      <Link
+                        to={href}
+                        className="inline-flex items-center text-primary font-medium group-hover:translate-x-2 transition-gentle"
+                        onClick={(e) => e.stopPropagation()} // prevent double navigation
+                        aria-label={`Learn more about ${seminar.title}`}
+                      >
                         Learn More
                         <ChevronRight className="w-4 h-4 ml-1" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
               );
             })}
           </div>
@@ -264,7 +277,7 @@ const Home = () => {
             Kristin's evidence-based seminars and training programs.
           </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="sage" size="lg" asChild>
               <Link to="/seminars" aria-label="Start Learning Today">
                 <Play className="w-5 h-5 mr-2" />
