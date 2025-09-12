@@ -48,7 +48,7 @@ const Home = () => {
             {/* Left Content */}
             <div className="text-primary-foreground">
               <Badge className="mb-6 bg-sage text-primary-foreground">
-                Licensed Clinical Psychologist • 15+ Years Experience
+                Master's in Psychology • 15+ Years Experience
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 Expert Mental Health 
@@ -56,7 +56,7 @@ const Home = () => {
               </h1>
               <p className="text-xl mb-8 text-primary-foreground/90 leading-relaxed">
                 Evidence-based seminars on depression, anxiety, and resilience for teams, 
-                schools, and communities. Transform your organization's mental health literacy.
+                schools, and communities from Kristin Bauer. Transform your organization's mental health literacy.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -89,7 +89,7 @@ const Home = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-elevated">
                 <img 
                   src={heroVideoPoster}
-                  alt="Dr. Sarah Chen speaking at a professional seminar"
+                  alt="Kristin Bauer speaking at a professional seminar"
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
@@ -181,7 +181,7 @@ const Home = () => {
             <div className="relative">
               <img 
                 src={drProfile}
-                alt="Dr. Sarah Chen, Licensed Clinical Psychologist"
+                alt="Kristin Bauer, Licensed Psychologist"
                 className="rounded-2xl shadow-elevated w-full max-w-md mx-auto lg:max-w-none"
               />
               <div className="absolute -bottom-6 -right-6 bg-primary-foreground rounded-xl p-4 shadow-elevated">
@@ -196,20 +196,20 @@ const Home = () => {
             </div>
 
             <div>
-              <Badge className="mb-4 bg-sage text-primary-foreground">Meet Dr. Chen</Badge>
+              <Badge className="mb-4 bg-sage text-primary-foreground">Meet Kristin</Badge>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                 15+ Years of Clinical Excellence
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Dr. Sarah Chen is a licensed clinical psychologist with over 15 years of experience 
+                Kristin Bauer holds a Master's degree in Psychology with over 15 years of experience 
                 in treating depression, anxiety, and trauma. She specializes in evidence-based 
                 therapeutic approaches and has trained thousands of professionals worldwide.
               </p>
               
               <div className="space-y-4 mb-8">
                 {[
-                  "Ph.D. Clinical Psychology, Stanford University",
-                  "Licensed Clinical Psychologist (CA PSY12345)",
+                  "Master's in Psychology",
+                  "Licensed Psychologist",
                   "500+ Organizations Trained",
                   "TEDx Speaker on Mental Health"
                 ].map((credential, index) => (
@@ -222,7 +222,7 @@ const Home = () => {
 
               <Button variant="outline" size="lg" asChild>
                 <Link to="/about">
-                  Learn More About Dr. Chen
+                  Learn More About Kristin
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
@@ -286,10 +286,10 @@ const Home = () => {
           <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-foreground">
             Ready to Transform Your Organization's Mental Health?
           </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
-            Join thousands of professionals who have enhanced their mental health literacy 
-            through Dr. Chen's evidence-based seminars and training programs.
-          </p>
+            <p className="text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
+              Join thousands of professionals who have enhanced their mental health literacy 
+              through Kristin's evidence-based seminars and training programs.
+            </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="sage" size="lg" asChild>

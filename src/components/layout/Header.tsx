@@ -31,8 +31,8 @@ const Header = () => {
               <span className="text-primary-foreground font-bold text-lg">D</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Dr. Sarah Chen</h1>
-              <p className="text-sm text-sage-dark hidden sm:block">Licensed Clinical Psychologist</p>
+              <h1 className="text-xl font-bold text-foreground">Kristin Bauer</h1>
+              <p className="text-sm text-sage-dark hidden sm:block">Licensed Psychologist</p>
             </div>
           </Link>
 

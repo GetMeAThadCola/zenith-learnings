@@ -106,13 +106,13 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-4 bg-sage text-primary-foreground">
-                Licensed Clinical Psychologist
+                Licensed Psychologist
               </Badge>
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Dr. Sarah Chen, Ph.D.
+                Kristin Bauer, M.A.
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                With over 15 years of clinical experience, Dr. Chen is a leading expert 
+                With over 15 years of clinical experience, Kristin is a leading expert 
                 in evidence-based mental health treatment and professional training. 
                 She has dedicated her career to reducing mental health stigma and 
                 improving access to quality mental health education.
@@ -141,7 +141,7 @@ const About = () => {
             <div className="relative">
               <img 
                 src={drProfile}
-                alt="Dr. Sarah Chen, Licensed Clinical Psychologist"
+                alt="Kristin Bauer, Licensed Psychologist"
                 className="rounded-2xl shadow-elevated w-full max-w-md mx-auto"
               />
               <div className="absolute -bottom-4 -left-4 bg-primary-foreground rounded-xl p-4 shadow-elevated">
