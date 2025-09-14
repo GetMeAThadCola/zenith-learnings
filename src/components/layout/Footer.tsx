@@ -15,8 +15,8 @@ const Footer = () => {
                 <Heart className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
-                <h3 className="text-lg font-bold">Dr. Sarah Chen</h3>
-                <p className="text-sm text-primary-foreground/80">Licensed Clinical Psychologist</p>
+                <h3 className="text-lg font-bold">Kristin Bauer</h3>
+                <p className="text-sm text-primary-foreground/80">Licensed Psychologist</p>
               </div>
             </div>
             <p className="text-sm text-primary-foreground/70 mb-4">
@@ -35,7 +35,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  About Dr. Chen
+                  About Kristin
                 </Link>
               </li>
               <li>
@@ -57,7 +57,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span className="text-primary-foreground/80">hello@drsarahchen.com</span>
+                <span className="text-primary-foreground/80">hello@kristinbauer.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
-                <span className="text-primary-foreground/80">San Francisco, CA</span>
+                <span className="text-primary-foreground/80">Tahoe, CA</span>
               </li>
             </ul>
           </div>
@@ -101,7 +101,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-primary-foreground/70">
-              © {currentYear} Dr. Sarah Chen. All rights reserved. Licensed in California (PSY12345).
+              © {currentYear} Kristin Bauer. All rights reserved. Licensed in California (PSY12345).
             </p>
             <p className="text-sm text-primary-foreground/70 mt-2 md:mt-0">
               Professional mental health education and consultation services.

@@ -1,12 +1,17 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Users, Award, Play, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import SeminarPaymentModal from "@/components/SeminarPaymentModal";
 import heroVideoPoster from "@/assets/hero-video-poster.jpg";
 import drProfile from "@/assets/dr-profile.jpg";
 
 const Home = () => {
+  const [selectedSeminar, setSelectedSeminar] = useState(null);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+
   const stats = [
     { label: "Years Experience", value: "15+" },
     { label: "Professionals Trained", value: "10,000+" },
@@ -19,24 +24,41 @@ const Home = () => {
       title: "Understanding Depression in the Workplace",
       duration: "45 minutes",
       price: "$49",
+      abstract: "Evidence-based strategies for recognizing and addressing workplace depression. Learn to identify early warning signs, implement supportive interventions, and create a mentally healthy work environment.",
       description: "Evidence-based strategies for recognizing and addressing workplace depression.",
-      badge: "Most Popular"
+      badge: "Most Popular",
+      rating: 4.9,
+      students: "2,500+",
+      isPopular: true
     },
     {
       title: "Anxiety Management for Teams",
       duration: "35 minutes", 
       price: "$39",
+      abstract: "Practical tools for managing anxiety in professional environments. Discover evidence-based techniques for reducing workplace stress and building team resilience.",
       description: "Practical tools for managing anxiety in professional environments.",
-      badge: "New"
+      badge: "New",
+      rating: 4.8,
+      students: "1,800+",
+      isNew: true
     },
     {
       title: "Building Resilience",
       duration: "60 minutes",
       price: "$59",
+      abstract: "Develop psychological resilience for personal and professional growth. Comprehensive training on building mental toughness and recovery strategies.",
       description: "Develop psychological resilience for personal and professional growth.",
-      badge: "Deep Dive"
+      badge: "Deep Dive",
+      rating: 4.9,
+      students: "3,200+",
+      isPremium: true
     }
   ];
+
+  const handleSeminarClick = (seminar) => {
+    setSelectedSeminar(seminar);
+    setIsPaymentModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen">
@@ -135,7 +157,11 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredSeminars.map((seminar, index) => (
-              <Card key={index} className="group gradient-card border-sage/20 hover:shadow-elevated transition-gentle cursor-pointer">
+              <Card 
+                key={index} 
+                className="group gradient-card border-sage/20 hover:shadow-elevated transition-gentle cursor-pointer"
+                onClick={() => handleSeminarClick(seminar)}
+              >
                 <CardContent className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <Badge variant="secondary" className="bg-sage text-primary-foreground">
@@ -244,7 +270,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                quote: "Dr. Chen's seminar on workplace depression was transformative for our team. The practical strategies she provided have made a real difference.",
+                quote: "Kristin's seminar on workplace depression was transformative for our team. The practical strategies she provided have made a real difference.",
                 author: "Sarah Johnson",
                 role: "HR Director, TechCorp"
               },
@@ -254,7 +280,7 @@ const Home = () => {
                 role: "Principal, Lincoln High School"
               },
               {
-                quote: "Evidence-based, practical, and engaging. Dr. Chen's training elevated our entire organization's approach to mental wellness.",
+                quote: "Evidence-based, practical, and engaging. Kristin's training elevated our entire organization's approach to mental wellness.",
                 author: "Dr. Amanda Kim",
                 role: "Medical Director, Community Health"
               }
@@ -311,6 +337,12 @@ const Home = () => {
           </div>
         </div>
       </section>
+      
+      <SeminarPaymentModal
+        seminar={selectedSeminar}
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+      />
     </div>
   );
 };

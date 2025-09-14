@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import AccountModal from "@/components/AccountModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -55,12 +59,29 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" asChild>
-              <Link to="/auth/sign-in">Sign In</Link>
-            </Button>
-            <Button variant="hero" asChild>
-              <Link to="/seminars">Watch Seminars</Link>
-            </Button>
+            {user ? (
+              <>
+                <Button 
+                  variant="outline" 
+                  onClick={() => setIsAccountModalOpen(true)}
+                >
+                  <User className="w-4 h-4 mr-2" />
+                  Account
+                </Button>
+                <Button variant="hero" asChild>
+                  <Link to="/seminars">Watch Seminars</Link>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="outline" asChild>
+                  <Link to="/auth/sign-in">Sign In</Link>
+                </Button>
+                <Button variant="hero" asChild>
+                  <Link to="/seminars">Watch Seminars</Link>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -94,16 +115,39 @@ const Header = () => {
               </Link>
             ))}
             <div className="pt-4 space-y-2">
-              <Button variant="outline" className="w-full" asChild>
-                <Link to="/auth/sign-in">Sign In</Link>
-              </Button>
-              <Button variant="hero" className="w-full" asChild>
-                <Link to="/seminars">Watch Seminars</Link>
-              </Button>
+              {user ? (
+                <>
+                  <Button 
+                    variant="outline" 
+                    className="w-full" 
+                    onClick={() => setIsAccountModalOpen(true)}
+                  >
+                    <User className="w-4 h-4 mr-2" />
+                    Account
+                  </Button>
+                  <Button variant="hero" className="w-full" asChild>
+                    <Link to="/seminars">Watch Seminars</Link>
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link to="/auth/sign-in">Sign In</Link>
+                  </Button>
+                  <Button variant="hero" className="w-full" asChild>
+                    <Link to="/seminars">Watch Seminars</Link>
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         )}
       </div>
+      
+      <AccountModal 
+        isOpen={isAccountModalOpen} 
+        onClose={() => setIsAccountModalOpen(false)} 
+      />
     </header>
   );
 };

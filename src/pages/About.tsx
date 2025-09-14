@@ -347,11 +347,11 @@ const About = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 text-primary-foreground/80">
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4" />
-              <span className="text-sm">hello@drsarahchen.com</span>
+              <span className="text-sm">hello@kristinbauer.com</span>
             </div>
             <div className="flex items-center space-x-2">
               <MapPin className="w-4 h-4" />
-              <span className="text-sm">San Francisco, CA</span>
+              <span className="text-sm">Tahoe, CA</span>
             </div>
           </div>
         </div>
