@@ -7,6 +7,8 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Seminars from "./pages/Seminars";
+import SeminarDetail from "./pages/SeminarDetail";
+import AdminSeminars from "./pages/AdminSeminars";
 import About from "./pages/About";
 import Book from "./pages/Book";
 import Contact from "./pages/Contact";
@@ -24,18 +26,20 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/seminars" element={<Seminars />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/book" element={<Book />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/auth/sign-in" element={<Auth />} />
-            <Route path="/payment-success" element={<PaymentSuccess />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+           <Routes>
+             <Route path="/" element={<Home />} />
+             <Route path="/seminars" element={<Seminars />} />
+             <Route path="/seminars/:id" element={<SeminarDetail />} />
+             <Route path="/admin/seminars" element={<AdminSeminars />} />
+             <Route path="/about" element={<About />} />
+             <Route path="/book" element={<Book />} />
+             <Route path="/contact" element={<Contact />} />
+             <Route path="/auth" element={<Auth />} />
+             <Route path="/auth/sign-in" element={<Auth />} />
+             <Route path="/payment-success" element={<PaymentSuccess />} />
+             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+             <Route path="*" element={<NotFound />} />
+           </Routes>
           </Layout>
         </AuthProvider>
       </BrowserRouter>

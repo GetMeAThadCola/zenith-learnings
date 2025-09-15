@@ -44,8 +44,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  My Dashboard
+                <Link to="/admin/seminars" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Manage Seminars
                 </Link>
               </li>
             </ul>

@@ -88,7 +88,7 @@ const Home = () => {
                     Watch Seminars
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" className="inline-flex items-center justify-center rounded-lg px-5 py-3 bg-white text-slate-900 border border-slate-200 hover:bg-slate-50" asChild>
+                <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
                   <Link to="/book">
                     Book Speaking Engagement
                   </Link>
