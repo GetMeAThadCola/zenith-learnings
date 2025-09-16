@@ -19,7 +19,8 @@ const Seminars = () => {
       enrolled: 2847,
       rating: 4.9,
       isPopular: true,
-      preview: true
+      preview: true,
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       id: "anxiety-management-teams",

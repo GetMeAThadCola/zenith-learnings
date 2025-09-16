@@ -30,6 +30,7 @@ const SeminarDetail = () => {
       isPremium: false,
       preview: true,
       students: "2,500+",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       modules: [
         "Understanding Depression: Symptoms and Causes",
         "Recognizing Warning Signs in the Workplace",
@@ -63,6 +64,7 @@ const SeminarDetail = () => {
       isPremium: false,
       preview: true,
       students: "1,800+",
+      videoUrl: undefined,
       modules: [
         "Understanding Anxiety in Teams",
         "Identifying Triggers and Patterns",
@@ -96,6 +98,7 @@ const SeminarDetail = () => {
       isPremium: false,
       preview: true,
       students: "3,200+",
+      videoUrl: undefined,
       modules: [
         "The Science of Resilience",
         "Stress Management Fundamentals",
@@ -210,7 +213,17 @@ const SeminarDetail = () => {
             <div className="mb-12">
               <h2 className="text-2xl font-bold mb-6">Preview</h2>
               <div className="aspect-video bg-healing-light rounded-xl flex items-center justify-center relative overflow-hidden">
-                <Play className="w-16 h-16 text-sage opacity-60" />
+                {seminar.videoUrl ? (
+                  <iframe
+                    src={seminar.videoUrl}
+                    title={seminar.title}
+                    className="w-full h-full rounded-xl"
+                    allowFullScreen
+                    frameBorder="0"
+                  />
+                ) : (
+                  <Play className="w-16 h-16 text-sage opacity-60" />
+                )}
                 <div className="absolute top-4 right-4">
                   {seminar.preview ? (
                     <Badge variant="outline" className="bg-background/90 border-sage">
