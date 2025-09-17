@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -299,7 +300,8 @@ const AdminSeminars = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <ProtectedRoute requireAuth={true} requireAdmin={true}>
+      <div className="min-h-screen bg-background p-6">
       <div className="container mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold">Seminar Management</h1>
@@ -381,7 +383,8 @@ const AdminSeminars = () => {
           ))}
         </div>
       </div>
-    </div>
+      </div>
+    </ProtectedRoute>
   );
 };
 

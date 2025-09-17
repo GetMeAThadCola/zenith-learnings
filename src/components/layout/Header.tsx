@@ -32,7 +32,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-full gradient-hero flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">D</span>
+              <span className="text-primary-foreground font-bold text-lg">KB</span>
             </div>
             <div>
               <h1 className="text-xl font-bold text-foreground">Kristin Bauer</h1>
