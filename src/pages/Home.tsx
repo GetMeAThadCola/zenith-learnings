@@ -109,19 +109,13 @@ const Home = () => {
             {/* Right Content - Video */}
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-elevated">
-                <img 
-                  src={heroVideoPoster}
-                  alt="Kristin Bauer speaking at a professional seminar"
-                  className="w-full h-auto"
-                />
-                <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
-                  <Button 
-                    size="lg" 
-                    className="rounded-full w-20 h-20 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-glow"
-                  >
-                    <Play className="w-8 h-8 ml-1" />
-                  </Button>
-                </div>
+                <iframe
+                  src="https://www.youtube.com/embed/zkc63iVhgTo?rel=0&modestbranding=1"
+                  title="Mental Health and Well-being in the Workplace"
+                  className="w-full h-[300px] lg:h-[400px]"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-primary-foreground rounded-xl p-4 shadow-elevated">
                 <div className="flex items-center space-x-2">
